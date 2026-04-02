@@ -29,18 +29,28 @@ document.addEventListener("DOMContentLoaded", () => {
 // FETCH AVAILABLE SLOTS FROM BACKEND
 // ============================================================
 async function fetchAvailableSlots(date) {
-    const container = document.getElementById("laikas");
-    container.innerHTML = '<option>Kraunama...</option>';
     selectedTime = null;
+
+    // Clear old grid and show loading immediately
+    const old = document.getElementById("slotGrid");
+    if (old) old.remove();
+    const errorMsg = document.querySelector(".slots-error");
+    if (errorMsg) errorMsg.remove();
+
+    const loading = document.createElement("p");
+    loading.id = "slotsLoading";
+    loading.style.cssText = "color:#8a9ab5;font-size:14px;margin-top:8px;";
+    loading.textContent = "Kraunama...";
+    document.getElementById("data").parentElement.after(loading);
 
     try {
         const res = await fetch(`${API_BASE}/slots?date=${date}`);
+        if (!res.ok) throw new Error("Server error");
         const data = await res.json();
-        const bookedSlots = data.booked;
-
-        renderTimeSlots(bookedSlots);
+        loading.remove();
+        renderTimeSlots(data.booked);
     } catch (err) {
-        container.innerHTML = "";
+        loading.remove();
         showSlotsError();
     }
 }
@@ -97,9 +107,8 @@ function renderTimeSlots(bookedSlots) {
 }
 
 function showSlotsError() {
-    const grid = document.getElementById("slotGrid");
-    if (grid) grid.remove();
     const msg = document.createElement("p");
+    msg.className = "slots-error";
     msg.style.cssText = "color:#e07070;font-size:14px;margin-top:4px;";
     msg.textContent = "Nepavyko gauti laikų. Bandykite vėliau.";
     document.getElementById("data").parentElement.after(msg);
