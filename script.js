@@ -1,7 +1,7 @@
 // ============================================================
 // CONFIG - change this to your backend URL when deploying
 // ============================================================
-const API_BASE = "https://your-backend.com/api"; // e.g. https://langublizgesys.lt/api
+const API_BASE = "https://langu-plovimas.onrender.com/api";
 
 // All available time slots in a day
 const ALL_SLOTS = ["08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00"];
@@ -34,14 +34,9 @@ async function fetchAvailableSlots(date) {
     selectedTime = null;
 
     try {
-        // --- REAL BACKEND CALL ---
-        // const res = await fetch(`${API_BASE}/slots?date=${date}`);
-        // const data = await res.json();
-        // const bookedSlots = data.booked; // e.g. ["09:00", "11:00"]
-
-        // --- MOCK (remove when backend is ready) ---
-        await new Promise(r => setTimeout(r, 600)); // simulate network
-        const bookedSlots = getMockBooked(date);
+        const res = await fetch(`${API_BASE}/slots?date=${date}`);
+        const data = await res.json();
+        const bookedSlots = data.booked;
 
         renderTimeSlots(bookedSlots);
     } catch (err) {
@@ -247,17 +242,12 @@ async function rezervuoti() {
         const recaptchaToken = await grecaptcha.execute("6Lf9SqMsAAAAAG-mQgiFGWyvMYDU0JnTfOW-AwtL", { action: "rezervacija" });
         payload.recaptchaToken = recaptchaToken;
 
-        // --- REAL BACKEND CALL ---
-        // const res = await fetch(`${API_BASE}/rezervacija`, {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(payload)
-        // });
-        // if (!res.ok) throw new Error("Server error");
-        // const result = await res.json();
-
-        // --- MOCK (remove when backend is ready) ---
-        await new Promise(r => setTimeout(r, 1200));
+        const res = await fetch(`${API_BASE}/rezervacija`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error("Server error");
 
         showSuccessModal(payload);
     } catch (err) {
