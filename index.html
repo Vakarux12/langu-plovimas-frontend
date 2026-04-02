@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangųBlizgesys - Langų Valymas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1610c334bd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<header class="hero">
+    <nav class="nav">
+        <div class="logo">
+            <span class="logo-icon">◈</span>
+            <span class="logo-text">Pavadinimas123</span>
+        </div>
+        <a href="#rezervacija" class="nav-cta">Rezervuoti</a>
+    </nav>
+
+    <div class="hero-content">
+        <div class="hero-badge">✦ Profesionalus langų valymas</div>
+        <h1 class="hero-title">Skaidrūs langai.<br><em>Be dryžių.</em></h1>
+        <p class="hero-sub">Greitai, pigiai.</p>
+        <a href="#rezervacija" class="hero-btn">Rezervuoti laiką →</a>
+    </div>
+
+    <div class="hero-stats">
+        <div class="stat">
+            <span class="stat-num">NEMOKAMAI</span>
+            <span class="stat-label">Pirmam lango plovimui</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Kokybės garantija</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+            <span class="stat-num">2h</span>
+            <span class="stat-label">Vidutinis laikas</span>
+        </div>
+    </div>
+
+    <div class="hero-decoration">
+        <div class="window-graphic">
+            <div class="w-frame">
+                <div class="w-pane w-pane--clean"></div>
+                <div class="w-pane"></div>
+                <div class="w-pane w-pane--clean"></div>
+                <div class="w-pane"></div>
+            </div>
+            <div class="squeegee"></div>
+        </div>
+    </div>
+</header>
+
+<!-- SERVICES SECTION -->
+<section class="services">
+    <div class="services-inner">
+        <div class="section-label">Paslaugos</div>
+        <h2 class="section-title">Ką mes siūlome</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Gyvenamieji namai</h3>
+                <p>Butai, namai, kotedžai. Valome vidų ir išorę.</p>
+            </div>
+            <div class="service-card service-card--featured">
+                <div class="service-badge">Populiariausia</div>
+                <div class="service-icon">🏢</div>
+                <h3>Biurai ir verslai</h3>
+                <p>Komerciniai objektai, biurai, parduotuvės - reguliarus aptarnavimas.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Services option 3</h3>
+                <p>Services option 3 description</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BOOKING SECTION -->
+<section class="booking" id="rezervacija">
+    <div class="booking-inner">
+        <div class="booking-left">
+            <div class="section-label">Rezervacija</div>
+            <h2 class="section-title">Pasirinkite<br>patogų laiką</h2>
+            <p class="booking-desc">Užpildykite formą ir mes patvirtinsime jūsų rezervaciją per 1 valandą.</p>
+
+            <div class="booking-perks">
+                <div class="perk">
+                    <span class="perk-icon">✓</span>
+                    <span>Greitas užsipildymas</span>
+                </div>
+                <div class="perk">
+                    <span class="perk-icon">✓</span>
+                    <span>Patvirtinimas el. paštu / SMS</span>
+                </div>
+                <div class="perk">
+                    <span class="perk-icon">✓</span>
+                    <span>Laikas užsipildo automatiškai</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="booking-right">
+            <div class="form-box" id="formBox">
+                <div class="form-step" id="step1">
+                    <div class="step-indicator">
+                        <span class="step active">1</span>
+                        <span class="step-line"></span>
+                        <span class="step">2</span>
+                        <span class="step-line"></span>
+                        <span class="step">3</span>
+                    </div>
+
+                    <h3>Jūsų informacija</h3>
+
+                    <div class="input-group">
+                        <label for="vardas">Vardas ir pavardė *</label>
+                        <input type="text" id="vardas" placeholder="Pvz.: Jonas Jonaitis" autocomplete="name" />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="telefonas">Telefono numeris *</label>
+                        <input type="tel" id="telefonas" placeholder="+370 600 00000" autocomplete="tel" />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="epastas">El. paštas *</label>
+                        <input type="email" id="epastas" placeholder="jonas@gmail.com" autocomplete="email" />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="adresas">Adresas *</label>
+                        <input type="text" id="adresas" placeholder="Pvz.: Gedimino pr. 1, Vilnius" />
+                    </div>
+
+                    <button class="btn-next" onclick="goStep(2)">Toliau →</button>
+                </div>
+
+                <div class="form-step hidden" id="step2">
+                    <div class="step-indicator">
+                        <span class="step done">✓</span>
+                        <span class="step-line active-line"></span>
+                        <span class="step active">2</span>
+                        <span class="step-line"></span>
+                        <span class="step">3</span>
+                    </div>
+
+                    <h3>Paslauga ir laikas</h3>
+
+                    <div class="input-group">
+                        <label for="paslauga">Paslaugos tipas *</label>
+                        <select id="paslauga">
+                            <option value="">-- Pasirinkite --</option>
+                            <option value="gyvenamasis">Gyvenamasis namas / butas</option>
+                            <option value="biuras">Biuras / komercinis objektas</option>
+                            <option value="po-remonto">Po remonto valymas</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="data">Data *</label>
+                        <input type="date" id="data" />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="laikas">Laikas *</label>
+                        <select id="laikas">
+                            <option value="">-- Pirmiausia pasirinkite datą --</option>
+                        </select>
+                    </div>
+
+                    <div class="btn-row">
+                        <button class="btn-back" onclick="goStep(1)">← Atgal</button>
+                        <button class="btn-next" onclick="goStep(3)">Toliau →</button>
+                    </div>
+                </div>
+
+                <div class="form-step hidden" id="step3">
+                    <div class="step-indicator">
+                        <span class="step done">✓</span>
+                        <span class="step-line active-line"></span>
+                        <span class="step done">✓</span>
+                        <span class="step-line active-line"></span>
+                        <span class="step active">3</span>
+                    </div>
+
+                    <h3>Patvirtinimas</h3>
+
+                    <div class="summary-box" id="summaryBox">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="pastabos">Papildomos pastabos (neprivaloma)</label>
+                        <textarea id="pastabos" placeholder="Pvz.: 3 aukštas, reikia kopėčių..."></textarea>
+                    </div>
+
+                    <div class="btn-row">
+                        <button class="btn-back" onclick="goStep(2)">← Atgal</button>
+                        <button class="btn-submit" onclick="rezervuoti()">
+                            <span class="btn-submit-text">Rezervuoti laiką</span>
+                            <span class="btn-submit-icon">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay hidden" id="successModal">
+    <div class="modal">
+        <div class="modal-icon">✓</div>
+        <h3>Rezervacija priimta!</h3>
+        <p id="modalText">Patvirtinimą išsiųsime el. paštu ir SMS žinute.</p>
+        <div class="modal-details" id="modalDetails"></div>
+        <button onclick="closeModal()">Puiku, ačiū!</button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="logo">
+            <span class="logo-icon">◈</span>
+            <span class="logo-text">Pavadinimas123</span>
+        </div>
+        <p class="footer-copy">© 2026 Pavadinimas123. Visi teisės saugomos.</p>
+        <div class="footer-contact">
+            <a href="tel:+37060000000">+370 600 00000</a>
+            <a href="mailto:info@pavadinimas123.lt">info@pavadinimas123.lt</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6Lf9SqMsAAAAAG-mQgiFGWyvMYDU0JnTfOW-AwtL"></script>
+<script src="script.js"></script>
+</body>
+</html>
